@@ -1,6 +1,3 @@
-# zsh-completions の設定。コマンド補完機能
-# autoload -U compinit && compinit -u
-
 # git のカラー表示
 git config --global color.ui auto
 
@@ -39,6 +36,7 @@ alias gst='git stash'
 alias gsl='git stash list'
 alias gsu='git stash -u'
 alias gsp='git stash pop'
+alias greset='git reset --soft HEAD\^'
 
 # 色を使用出来るようにする
 autoload -Uz colors
@@ -135,8 +133,8 @@ function left-prompt {
   sharp='\uE0B0'      # triangle
 
   user="${back_color}${name_b}${text_color}${name_t}"
-  dir="${back_color}${path_b}${text_color}${path_t}"
-  echo "${user}%n%#@%m${back_color}${path_b}${text_color}${name_b}$ ${dir}%~${reset}${text_color}${path_b} ${reset}\n${text_color}${arrow}→ ${reset}"
+  dir="${text_color}${path_t}"
+  echo "${dir}%~${reset}${text_color}${path_b} ${reset}\n${text_color}${arrow}→ ${reset}"
 }
 
 PROMPT=`left-prompt`
@@ -192,3 +190,7 @@ setopt prompt_subst
 
 # プロンプトの右側にメソッドの結果を表示させる
 RPROMPT='`rprompt-git-current-branch`'
+
+
+# source ~/.zshrc
+# 次のプラグインを利用する https://github.com/b4b4r07/enhancd
