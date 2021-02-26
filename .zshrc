@@ -195,4 +195,6 @@ RPROMPT='`rprompt-git-current-branch`'
 # source ~/.zshrc
 # 次のプラグインを利用する https://github.com/b4b4r07/enhancd
 
-source ./enhancd/init.sh
+source ~/enhancd/init.sh
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
